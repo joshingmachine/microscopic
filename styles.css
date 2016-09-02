@@ -1,0 +1,85 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+body {
+    background-color: #EFF7EF;
+    height: 1200vm;
+    height: 1200vmin;
+    width: 1200vm;
+    width: 1200vmin;
+}
+
+h1 {
+    margin: 0px;
+    padding: 0px;
+}
+
+input[type=checkbox] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+.dust {
+    color: #DBDBDB;
+    -webkit-animation: dust 3s ease-in-out infinite;
+    -moz-animation: dust 3s ease-in-out infinite;
+    -ms-animation: dust 3s ease-in-out infinite;
+    animation: dust 3s ease-in-out infinite;
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    font-size: 3vmin;
+    display: inline-block;
+}
+
+.bacteria__label {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    font-size: 4vm;
+    font-size: 4vmin;
+}
+
+
+/* Default State */
+.bacteria__dialog {
+   display: none;
+}
+
+/* Toggled State */
+.bacteria__checkbox:checked ~ .bacteria__dialog {
+   display: inline-block;
+}
+
+@keyframes dust {
+    from {transform:translate(0, 0px);}
+    25% {transform:translate(5px, 2px)}
+    65% {transform:translate(3px, 5px);}
+    to {transform:translate(0, 0px);}
+}
+
+@-webkit-keyframes dust {
+    from {-webkit-transform:translate(0, 0px);}
+    25% {-webkit-transform:translate(5px, 2px)}
+    65% {-webkit-transform:translate(3px, 5px);}
+    to {-webkit-transform:translate(0, 0px);}
+}
+
+@-moz-keyframes dust {
+    from {-moz-transform:translate(0, 0px);}
+    25% {-moz-transform:translate(5px, 2px)}
+    65% {-moz-transform:translate(3px, 5px);}
+    to {-moz-transform:translate(0, -0px);}
+}
+
+@-ms-keyframes dust {
+    from {-ms-transform:translate(0, 0px);}
+    25% {-ms-transform:translate(5px, 2px)}
+    65% {-ms-transform:translate(3px, 5px);}
+    to {-ms-transform:translate(0, -0px);}
+}
