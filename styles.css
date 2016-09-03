@@ -101,6 +101,52 @@ h1 {
    display: inline-block;
 }*/
 
+.overlay-container {
+    position: fixed;
+    top: -5vmin;
+    left: -5vmin;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    height: 100%;
+    pointer-events: none;
+    filter: blur(15px);
+    -webkit-filter: blur(15px);
+    border: 5vmin black solid;
+}
+
+.overlay-container:focus {
+    border 5min black solid;
+}
+.overlay-border {
+    height: 100%;
+    background-color: black;
+    flex: 1 0 auto;
+}
+
+.overlay{
+    position: relative;
+    width: 100vmin;
+    height: 100%;
+    overflow: hidden;
+    flex: 0 0 auto;
+}
+.overlay:after{
+    content: "";
+    position: absolute;
+    left: 12vmin;
+    top: 10vmin;
+    border-radius: 100%;
+    width: 75vmin;
+    height: 75vmin;
+    box-shadow: 0px 0px 0px 200vmin black;
+}
+
+
+
+
+
+
 @keyframes dust {
     from {transform:translate(0, 0px);}
     25% {transform:translate(5px, 2px)}
