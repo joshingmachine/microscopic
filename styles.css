@@ -7,10 +7,12 @@ html, body {
 
 body {
     background-color: #EFF7EF;
-    height: 1200vm;
-    height: 1200vmin;
-    width: 1200vm;
-    width: 1200vmin;
+    margin: 50vh 50vw;
+    height: 1000vm;
+    height: 1000vmin;
+    width: 1000vm;
+    width: 1000vmin;
+    position: relative;
 }
 
 h1 {
@@ -28,12 +30,15 @@ h1 {
     -webkit-filter: blur(1px);
     font-size: 3vmin;
     display: inline-block;
+    display: none;
 }
 
 .bacteria__checkbox {
     position: absolute;
     top: -9999px;
     left: -9999px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .bacteria__label {
@@ -44,12 +49,29 @@ h1 {
     font-size: 4vm;
     font-size: 4vmin;
     cursor: pointer;
+    position: absolute;
+    width: 14vmin;
+    height: 10vmin;
+    top: -5vmin;
+    left: -7vmin;
+    text-align: center;
+    background-color: aqua;
+    line-height: 9vmin;
+    border-radius: 5vmin;
 }
 
 
 /* Default State */
 .bacteria__dialog {
-   display: none;
+    display: none;
+    margin: 0px;
+    position: absolute;
+    width: 20vmin;
+    top: -12vmin;
+    left: -3vmin;
+    text-align: center;
+    font-size: 2.5vmin;
+    line-height: initial;
 }
 
 .bacteria__checkbox:checked + .bacteria__label {
@@ -57,9 +79,27 @@ h1 {
    background-color: red;
 }
 
-.bacteria__checkbox:checked + .bacteria__label > .bateria__dialog {
-   display: inline-block;
+.bacteria__checkbox:checked + .bacteria__label > .bacteria__dialog {
+    display: inline-block;
+    -webkit-animation: speak 200ms ease-out 1;
+    -moz-animation: speak 200ms ease-out 1;
+    -ms-animation: speak 200ms ease-out 1;
+    animation: speak 200ms ease-out 1;
 }
+
+@keyframes speak {
+    0% { transform: translateY(4vmin); opacity: 0;}
+    100% {  transform: translateY(0vmin); opacity: 1; }
+}
+
+@-webkit-keyframes speak {
+    0% { transform: translateY(4vmin); opacity: 0;}
+    100% {  transform: translateY(0vmin); opacity: 1; }
+}
+
+/*.bacteria__checkbox:checked + .bacteria__label > .bateria__dialog {
+   display: inline-block;
+}*/
 
 @keyframes dust {
     from {transform:translate(0, 0px);}
