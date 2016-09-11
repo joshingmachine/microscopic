@@ -1,36 +1,40 @@
-html, body {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    height: 100%;
-}
-
-body {
-    background-color: #EFF7EF;
-    margin: 50vh 50vw;
-    height: 1000vm;
-    height: 1000vmin;
-    width: 1000vm;
-    width: 1000vmin;
-    position: relative;
-}
-
-h1 {
-    margin: 0px;
-    padding: 0px;
-}
-
+/*
 .dust {
-    color: #DBDBDB;
-    -webkit-animation: dust 3s ease-in-out infinite;
-    -moz-animation: dust 3s ease-in-out infinite;
-    -ms-animation: dust 3s ease-in-out infinite;
-    animation: dust 3s ease-in-out infinite;
-    filter: blur(1px);
-    -webkit-filter: blur(1px);
-    font-size: 3vmin;
-    display: inline-block;
-    display: none;
+    perspective: 1px;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: auto;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.dust-layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.dust-layer:first-child {
+    transform: translateZ(0);
+}
+
+.dust-layer:last-child {
+    transform: translateZ(-1px) scale(2);
+}
+
+i {
+
+}
+
+i:before {
+    content: ".";
+    font-style: normal;
+    font-size: 100px;
+    color: gray;
 }
 
 .bacteria__checkbox {
@@ -61,7 +65,7 @@ h1 {
 }
 
 
-/* Default State */
+/* Default State
 .bacteria__dialog {
     display: none;
     margin: 0px;
@@ -99,7 +103,7 @@ h1 {
 
 /*.bacteria__checkbox:checked + .bacteria__label > .bateria__dialog {
    display: inline-block;
-}*/
+}
 
 .overlay-container {
     position: fixed;
@@ -113,6 +117,7 @@ h1 {
     filter: blur(15px);
     -webkit-filter: blur(15px);
     border: 5vmin black solid;
+    display: none;
 }
 
 .overlay-container:focus {
@@ -140,37 +145,107 @@ h1 {
     width: 75vmin;
     height: 75vmin;
     box-shadow: 0px 0px 0px 200vmin black;
+}*/
+
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
-
-
-
-
-
-@keyframes dust {
-    from {transform:translate(0, 0px);}
-    25% {transform:translate(5px, 2px)}
-    65% {transform:translate(3px, 5px);}
-    to {transform:translate(0, 0px);}
+body {
+    height: 1000%;
+    width: 1000%;
+    margin: 0px;
+    position: relative;
+    background-color: #EFF7EF;
 }
 
-@-webkit-keyframes dust {
-    from {-webkit-transform:translate(0, 0px);}
-    25% {-webkit-transform:translate(5px, 2px)}
-    65% {-webkit-transform:translate(3px, 5px);}
-    to {-webkit-transform:translate(0, 0px);}
+.dust--bg,
+.dust--fg,
+.dish-wrapper {
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
-@-moz-keyframes dust {
-    from {-moz-transform:translate(0, 0px);}
-    25% {-moz-transform:translate(5px, 2px)}
-    65% {-moz-transform:translate(3px, 5px);}
-    to {-moz-transform:translate(0, -0px);}
+.dust--bg,
+.dust--fg {
+    pointer-events: none;
 }
 
-@-ms-keyframes dust {
-    from {-ms-transform:translate(0, 0px);}
-    25% {-ms-transform:translate(5px, 2px)}
-    65% {-ms-transform:translate(3px, 5px);}
-    to {-ms-transform:translate(0, -0px);}
+.dish-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dish {
+    flex: 0 0 90%;
+    height: 90%;
+    background-color: lightblue;
+    position: relative;
+}
+
+.bacteria__checkbox {
+    position: absolute;
+    top: -99999px;
+    left: -99999px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.bacteria__label {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    font-size: 4vmin;
+    cursor: pointer;
+    position: absolute;
+    width: 1.11%;
+    height: 1.11%;
+    left: -0.55%;
+    top: -0.55%;
+    text-align: center;
+    background-color: lightsalmon;
+    border-radius: 5vmin;
+}
+
+/* Default State */
+.bacteria__dialog {
+    display: none;
+    margin: 0px;
+    position: absolute;
+    width: 200%;
+    top: -12vmin;
+    left: -50%;
+    text-align: center;
+    font-size: 2.5vmin;
+    line-height: initial;
+}
+
+.bacteria__checkbox:checked + .bacteria__label {
+   pointer-events: none;
+   background-color: red;
+}
+
+.bacteria__checkbox:checked + .bacteria__label > .bacteria__dialog {
+    display: inline-block;
+    -webkit-animation: speak 200ms ease-out 1;
+    -moz-animation: speak 200ms ease-out 1;
+    -ms-animation: speak 200ms ease-out 1;
+    animation: speak 200ms ease-out 1;
+}
+
+@keyframes speak {
+    0% { transform: translateY(4vmin); opacity: 0;}
+    100% {  transform: translateY(0vmin); opacity: 1; }
+}
+
+@-webkit-keyframes speak {
+    0% { transform: translateY(4vmin); opacity: 0;}
+    100% {  transform: translateY(0vmin); opacity: 1; }
 }
