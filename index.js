@@ -4,15 +4,14 @@ var compression            = require("compression");
 var express                = require("express");
 var app                    = express();
 var path                   = require("path");
-var getBacteriaCoordinates = require("./utils").getBacteriaCoordinates;
+// var getBacteriaCoordinates = require("./src/utils").getBacteriaCoordinates;
+
 
 app.use(compression({level:9}));
 app.use(express.static("./"));
 
 app.get("/", function (req, res) {
     var bacteriaCoordinates = getBacteriaCoordinates();
-
-
 
     res.sendFile(path.join(__dirname + "/index.html"));
 });
