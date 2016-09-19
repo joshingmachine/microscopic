@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "node src/build/index.js",
+    "build:html": "node src/build/html.js",
+    "build:css": "node src/build/css.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Josh Smith",
   "license": "ISC",
   "dependencies": {
     "compression": "^1.6.2",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "html-minifier": "^3.0.2"
   },
   "devDependencies": {
     "cssnano": "^3.7.4",

@@ -1,19 +1,18 @@
 "use strict";
 
-var compression            = require("compression");
-var express                = require("express");
-var app                    = express();
-var path                   = require("path");
-// var getBacteriaCoordinates = require("./src/utils").getBacteriaCoordinates;
+var compression = require("compression");
+var express     = require("express");
+var app         = express();
+var minifyHTML  = require("./src/utils/minify-utils").minifyHTML;
 
 
 app.use(compression({level:9}));
-app.use(express.static("./"));
+app.use(express.static("bin"));
 
 app.get("/", function (req, res) {
-    var bacteriaCoordinates = getBacteriaCoordinates();
-
-    res.sendFile(path.join(__dirname + "/index.html"));
+    minifyHTML().then(function(minifiedHTML) {
+        res.send(minifiedHTML);
+    });
 });
 
 app.use(function(req, res, next) {
@@ -27,4 +26,5 @@ app.use(function(err, req, res, next) {
 
 app.listen(3000, function () {
     console.log("Example app listening on port 3000!");
+    console.log("WOOP");
 });
