@@ -14,46 +14,38 @@ body {
     background-color: #EFF7EF;
 }
 
-.dust--bg,
-.dust--fg,
+.dust-layer,
 .dish-wrapper {
     height: 100%;
     width: 100%;
     position: absolute;
 }
 
-.dust--bg,
-.dust--fg {
+.dust-layer {
     pointer-events: none;
     padding: 0;
     margin: 0;
     list-style: none;
     display: flex;
-    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
 }
 
-.dust-rect {
-    width: 10%;
-    height: 10%;
+.dust-layer > div {
     text-align: center;
     position: relative;
+    flex: 0 0 20%;
 }
 
 i {
     position: absolute;
-    font-size: 200%;
+    font-size: 150px;
     color: gray;
-    -webkit-filter: blur(1px);
+    -webkit-filter: blur(2px);
 }
 
 i:after {
     content: ".";
 }
-
-
-
-
-
 
 
 
@@ -72,7 +64,7 @@ i:after {
 .dish {
     flex: 0 0 90%;
     height: 90%;
-    background-color: lightblue;
+    /*background-color: lightblue; */
     position: relative;
 }
 

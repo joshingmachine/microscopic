@@ -4,13 +4,15 @@ var compression = require("compression");
 var express     = require("express");
 var app         = express();
 var minifyHTML  = require("./src/utils/minify-utils").minifyHTML;
-
+var markupUtils = require("./src/utils/markup-utils");
 
 app.use(compression({level:9}));
 app.use(express.static("bin"));
 
 app.get("/", function (req, res) {
-    minifyHTML().then(function(minifiedHTML) {
+    var markup = markupUtils.getMarkup();
+
+    minifyHTML(markup).then(function(minifiedHTML) {
         res.send(minifiedHTML);
     });
 });
@@ -26,5 +28,4 @@ app.use(function(err, req, res, next) {
 
 app.listen(3000, function () {
     console.log("Example app listening on port 3000!");
-    console.log("WOOP");
 });

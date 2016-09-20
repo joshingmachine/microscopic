@@ -28,12 +28,12 @@ function minifyCSS() {
     });
 }
 
-function minifyHTML() {
+function minifyHTML(markup) {
     var inputPath = path.join(__dirname, "../views/index.html");
     var outputPath = path.join(__dirname, "../../bin/index.html");
 
     return new Promise(function(resolve, reject) {
-        var html = fs.readFileSync(inputPath, "utf8");
+        var html = markup || fs.readFileSync(inputPath, "utf8");
 
         var minifiedHTML = minify(html, {
             collapseBooleanAttributes: true,
