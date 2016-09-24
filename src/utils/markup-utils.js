@@ -3,26 +3,78 @@ var path      = require("path");
 var dustUtils = require("./dust-utils");
 
 function getPartialMarkup(partialName) {
-    var inputPath = path.join(__dirname, "../views/partials/"+partialName+".html");
-    var partialMarkup = fs.readFileSync(inputPath, "utf8");
-    return partialMarkup;
+    return new Promise(function(resolve, reject) {
+        const inputPath = path.join(__dirname, "../views/partials/"+partialName+".html");
+
+        fs.readFile(inputPath, "utf8", function(err, partialMarkup) {
+            if(err) {
+                return reject(err);
+            } else {
+                return resolve(partialMarkup);
+            }
+        });
+    });
 }
 
-function getStyleMarkup() {
-    var inputPath = path.join(__dirname, "../styles/dust.css");
-    var styleMarkup = fs.readFileSync(inputPath, "utf8");
-    return "<style>"+styleMarkup+"</style>";
+// function getStyleMarkup() {
+//     return new Promise(function(resolve, reject) {
+//         const inputPath = path.join(__dirname, "../styles/dust.css");
+//
+//         fs.readFile(inputPath, "utf8", function(err, styleMarkup) {
+//             if(err) {
+//                 return reject(err);
+//             } else {
+//                 return resolve(styleMarkup);
+//             }
+//         })
+//     });
+//
+//     return "<style>"+styleMarkup+"</style>";
+// }
+
+
+
+
+
+function getStaticHeadMarkup() {
+    return getPartialMarkup("head");
+}
+
+function getDynamicHeadMarkup() {
+    return getBacteriaPositionStyleMarkup();
+}
+
+function getDustMarkup() {
+    const dustMarkupPromises = [
+        dustUtils.getRandomDustMarkup(),
+        dustUtils.getRandomDustMarkup()
+    ];
+
+    return Promise.all(dustMarkupPromises);
+}
+
+function getDynamicBodyMarkup() {
+    const dynamicBodyMarkupPromises = [
+        getDustMarkup(),
+
+    ];
+
+    return Promise.all()
+}
+
+function getStaticBodyMarkup() {
+    return Promise.resolve();
 }
 
 function getMarkup() {
-    var headMarkup = getPartialMarkup("head");
-    var styleMarkup = getStyleMarkup();
-    var dustMarkup = dustUtils.getRandomDustMarkup();
-    var dishMarkup = getPartialMarkup("dish");
-    var microscopeMarkup = getPartialMarkup("microscope");
-    var markup = headMarkup+styleMarkup+"<body>"+dustMarkup+dishMarkup+microscopeMarkup+"</body>";
+    const markupPromises = [ getStaticHeadMarkup(),
+                             getDynamicHeadMarkup(),
+                             getDynamicBodyMarkup(),
+                             getStaticBodyMarkup() ];
 
-    return markup;
+    return Promise.all(markupPromises).then(function(markupSections) {
+        return markupSections.join("");
+    })
 }
 
 module.exports = {

@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build:dust": "node src/build/dust.js",
-    "build:html": "node src/build/html.js",
-    "build:css": "node src/build/css.js",
+    "rebuild": "node src/rebuild/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Josh Smith",
@@ -20,6 +18,7 @@
   "devDependencies": {
     "cssnano": "^3.7.4",
     "postcss": "^5.2.0",
-    "postcss-cssnext": "^2.8.0"
+    "postcss-cssnext": "^2.8.0",
+    "postcss-import": "^8.1.2"
   }
 }

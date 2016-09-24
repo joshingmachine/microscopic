@@ -10,10 +10,10 @@ app.use(compression({level:9}));
 app.use(express.static("bin"));
 
 app.get("/", function (req, res) {
-    var markup = markupUtils.getMarkup();
+    // var markup = markupUtils.getMarkup();
 
-    minifyHTML(markup).then(function(minifiedHTML) {
-        res.send(minifiedHTML);
+    markupUtils.getMarkup().then(function(markup) {
+        res.send(markup);
     });
 });
 
