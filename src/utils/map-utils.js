@@ -7,7 +7,7 @@ function spaceOverlaps(point, mapPoint, minDistance) {
 
 function isPointInvalid(point, map) {
     return map.some(function(mapPoint) {
-        return spaceOverlaps(point, mapPoint, 5);
+        return spaceOverlaps(point, mapPoint, 10);
     });
 }
 

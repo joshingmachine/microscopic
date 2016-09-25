@@ -3,7 +3,7 @@ const path = require("path");
 
 function getRandomDustMarkup() {
     return new Promise(function(resolve, reject) {
-        const inputPath = path.join(__dirname, "../views/dust");
+        const inputPath = path.join(__dirname, "../../bin/views/dust");
         fs.readdir(inputPath, "utf8", function(err, files) {
             if(err) {
                 return reject(err);

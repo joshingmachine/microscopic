@@ -1,0 +1,18 @@
+.dish-wrapper {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.dish-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dish {
+    flex: 0 0 90%;
+    height: 90%;
+    /*background-color: lightblue; */
+    position: relative;
+}

@@ -1,0 +1,46 @@
+.microscope-wrapper {
+    /*height: 10%;
+    width: 10%;*/
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.microscope {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.counter {
+    flex: 0 0 10vmin;
+    display: flex;
+    width: 70%;
+    list-style: none;
+    justify-content: space-around;
+    -webkit-margin-before: 5%;
+    -webkit-margin-after: 5%;
+    -webkit-padding-start: 0px;
+    z-index: 1;
+}
+
+.counter > li {
+    height: 100%;
+    flex: 0 0 10vmin;
+    background-color: #4d4d4d;
+    border-radius: 50%;
+}
+
+.lens {
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 9999px black;
+    width: 95vmin;
+    -webkit-filter: blur(7px);
+    flex: 0 1 95vmin;
+}

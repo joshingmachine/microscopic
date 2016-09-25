@@ -1,0 +1,60 @@
+.mc_c {
+    position: absolute;
+    top: -99999px;
+    left: -99999px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.mc_l {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    font-size: 4vmin;
+    cursor: pointer;
+    position: absolute;
+    width: 1.6%;
+    left: -0.8%;
+    text-align: center;
+    background-color: lightsalmon;
+    border-radius: 25%;
+    height: 0;
+    padding: 0.8% 0;
+}
+
+/* Default State */
+.mc_d {
+    display: none;
+    margin: 0px;
+    position: absolute;
+    width: 200%;
+    top: -80%;
+    left: -50%;
+    text-align: center;
+    font-size: 80%;
+    line-height: initial;
+}
+
+.mc_c:checked + .mc_l {
+   pointer-events: none;
+   background-color: red;
+}
+
+.mc_c:checked + .mc_l > .mc_d {
+    display: inline-block;
+    -webkit-animation: speak 200ms ease-out 1;
+    -moz-animation: speak 200ms ease-out 1;
+    -ms-animation: speak 200ms ease-out 1;
+    animation: speak 200ms ease-out 1;
+}
+
+@keyframes speak {
+    0% { transform: translateY(4vmin); opacity: 0;}
+    100% {  transform: translateY(0vmin); opacity: 1; }
+}
+
+@-webkit-keyframes speak {
+    0% { transform: translateY(4vmin); opacity: 0;}
+    100% {  transform: translateY(0vmin); opacity: 1; }
+}

@@ -12,8 +12,8 @@ const ALPHABET       = (function() {
     }
     return alphabet;
 })();
-const dustPartialPath = "/src/views/dust";
 
+const dustPartialPath = "/bin/views/dust";
 
 // functions
 function getDustPointMarkup(dustPointClass) {
