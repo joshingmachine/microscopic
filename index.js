@@ -7,7 +7,7 @@ var minifyHTML  = require("./src/utils/minify-utils").minifyHTML;
 var markupUtils = require("./src/utils/markup-utils");
 
 app.use(compression({level:9}));
-app.use(express.static("bin"));
+app.use(express.static("bin/styles"));
 
 app.get("/", function (req, res) {
     // var markup = markupUtils.getMarkup();

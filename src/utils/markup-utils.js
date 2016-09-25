@@ -32,45 +32,52 @@ function getPartialMarkup(partialName) {
 //     return "<style>"+styleMarkup+"</style>";
 // }
 
+// function getDynamicHeadMarkup() {
+//     return getBacteriaPositionStyleMarkup();
+// }
+//
+// function getDustMarkup() {
+//     const dustMarkupPromises = [
+//         dustUtils.getRandomDustMarkup(),
+//         dustUtils.getRandomDustMarkup()
+//     ];
+//
+//     return Promise.all(dustMarkupPromises);
+// }
+//
+// function getDynamicBodyMarkup() {
+//     const dynamicBodyMarkupPromises = [
+//         getDustMarkup(),
+//
+//     ];
+//
+//     return Promise.all()
+// }
+//
+// function getStaticBodyMarkup() {
+//     return Promise.resolve();
+// }
 
 
 
+function getStaticMarkup(partialName) {
+    return new Promise(function(resolve, reject) {
+        const inputPath = path.join(__dirname, "../../bin/views/"+partialName+".html");
 
-function getStaticHeadMarkup() {
-    return getPartialMarkup("head");
+        fs.readFile(inputPath, "utf8", function(err, partialMarkup) {
+            if(err) {
+                return reject(err);
+            } else {
+                return resolve(partialMarkup);
+            }
+        });
+    });
 }
 
-function getDynamicHeadMarkup() {
-    return getBacteriaPositionStyleMarkup();
-}
-
-function getDustMarkup() {
-    const dustMarkupPromises = [
-        dustUtils.getRandomDustMarkup(),
-        dustUtils.getRandomDustMarkup()
-    ];
-
-    return Promise.all(dustMarkupPromises);
-}
-
-function getDynamicBodyMarkup() {
-    const dynamicBodyMarkupPromises = [
-        getDustMarkup(),
-
-    ];
-
-    return Promise.all()
-}
-
-function getStaticBodyMarkup() {
-    return Promise.resolve();
-}
 
 function getMarkup() {
-    const markupPromises = [ getStaticHeadMarkup(),
-                             getDynamicHeadMarkup(),
-                             getDynamicBodyMarkup(),
-                             getStaticBodyMarkup() ];
+    const markupPromises = [ getStaticMarkup("head"),
+                             getStaticMarkup("body") ];
 
     return Promise.all(markupPromises).then(function(markupSections) {
         return markupSections.join("");
@@ -78,5 +85,6 @@ function getMarkup() {
 }
 
 module.exports = {
-    getMarkup: getMarkup
+    getMarkup: getMarkup,
+    getPartialMarkup: getPartialMarkup
 };

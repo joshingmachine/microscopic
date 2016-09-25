@@ -11,14 +11,6 @@ var atImport = require("postcss-import")
 var cssnext  = require("postcss-cssnext");
 var cssnano  = require("cssnano")({ autoprefixer: false });
 
-
-
-
-
-
-
-
-
 function minifyCSS() {
     var inputPath = path.join(__dirname, "../styles/styles.css");
     var outputPath = path.join(__dirname, "../../bin/m.css");

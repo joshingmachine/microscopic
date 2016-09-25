@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "rebuild": "node src/rebuild/index.js",
+    "build": "node src/build/index.js",
+    "build:stylesheets": "node src/build/stylesheets",
+    "build:markup": "node src/build/markup",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Josh Smith",

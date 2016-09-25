@@ -1,23 +1,17 @@
-// dependencies
-var postcss = require("postcss");
-var cssnext = require("postcss-cssnext");
-var cssnano = require("cssnano");
-var fs      = require("fs");
-var path    = require("path");
+// depdendencies
+const buildStylesheets = require("./stylesheets/build.js");
+const buildMarkup      = require("./markup/build.js");
 
-var inputPath = path.join(__dirname, "../styles.css");
-var outputPath = path.join(__dirname, "../../m.css");
+console.log("Starting build...");
 
-// read css
-var css = fs.readFileSync(inputPath, "utf8");
+// build the files concurrently
+const buildFiles = [
+    buildStylesheets(),
+    buildMarkup()
+];
 
-// process css
-postcss([ cssnext, cssnano ])
-    .process(css, { from: inputPath, to: outputPath })
-    .then(function (result) {
-        fs.writeFileSync(outputPath, result.css);
-        if ( result.map ) fs.writeFileSync("app.css.map", result.map);
-    })
-    .catch(function(err) {
-        console.log(err);
-    });
+Promise.all(buildFiles).then(function() {
+    console.log("Finished build [COMPLETE]");
+}).catch(function(error) {
+    console.error("Error during build:", error);
+});
