@@ -9,6 +9,14 @@ const ALPHABET = (function() {
 })();
 
 
+function getMicrobe(type) {
+    if(type === "friend") {
+
+    } else {
+
+    }
+}
+
 function getMicrobes() {
     '.mc_l[for="'+microbeId+'"]'
 }
@@ -16,3 +24,33 @@ function getMicrobes() {
 module.exports = {
     getMicrobes: getMicrobes
 };
+
+function getMicrobeCheckboxMarkup(id) {
+    return '<input class="mc_c" type="checkbox" id="'+id+'"';
+}
+
+function getMicrobeLabelMarkup(microbePayload) {
+    return [
+        '<label class="mc_l" for="'+microbePayload.id+'">',
+        microbePayload.face,
+        getMicrobeDialogMarkup(microbePayload.dialog),
+        ''
+    ];
+}
+
+function getMicrobeMarkup(microbePayload) {
+    return `<input class="mc_c" type="checkbox" id="${microbePayload.id}">
+    <label class="mc_l" for="${microbePayload.id}">
+
+
+    `;
+}
+
+
+
+
+<input class="mc_c" type="checkbox" id="a">
+<label class="mc_l" for="a">
+    <span class="mc_f">◕_◕</span>
+    <code class="mc_d">You made me red</code>
+</label>
