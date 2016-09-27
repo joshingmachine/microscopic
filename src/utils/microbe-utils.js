@@ -41,7 +41,8 @@ function getMicrobeLabelMarkup(microbePayload) {
 function getMicrobeMarkup(microbePayload) {
     return `<input class="mc_c" type="checkbox" id="${microbePayload.id}">
     <label class="mc_l" for="${microbePayload.id}">
-
+    <span class="mc_f">${microbePayload.face}</span>
+        
 
     `;
 }
