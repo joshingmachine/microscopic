@@ -31,9 +31,11 @@ function bundleBodyMarkup() {
     return new Promise(function(resolve, reject) {
         console.log("Bundling body markup");
 
+        // TODO: Add markupUtils.getPartialMarkup("microscope") below
+
         const markupBundlers = [
-            markupUtils.getPartialMarkup("dish"),
-            markupUtils.getPartialMarkup("microscope")
+            // markupUtils.getPartialMarkup("dish"),
+            // markupUtils.getPartialMarkup("microscope")
         ];
 
         Promise.all(markupBundlers)

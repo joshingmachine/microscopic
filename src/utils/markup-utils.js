@@ -1,6 +1,7 @@
-var fs        = require("fs");
-var path      = require("path");
-var dustUtils = require("./dust-utils");
+var fs           = require("fs");
+var path         = require("path");
+var dustUtils    = require("./dust-utils");
+var microbeUtils = require("./microbe-utils");
 
 function getPartialMarkup(partialName) {
     return new Promise(function(resolve, reject) {
@@ -41,8 +42,10 @@ function getDynamicDustMarkup() {
 
 function getMarkup() {
     const markupPromises = [ getStaticMarkup("head"),
+                             microbeUtils.getPositionStyles(),
                              Promise.resolve("<body>"),
                              getDynamicDustMarkup(),
+                             microbeUtils.getDynamicMicrobeMarkup(),
                              getStaticMarkup("body"),
                              Promise.resolve("</body>")];
 
