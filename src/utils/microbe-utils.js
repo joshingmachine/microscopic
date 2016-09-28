@@ -1,5 +1,6 @@
 var mapUtils = require("./map-utils");
 var minifyUtils = require("./minify-utils");
+var faces = require("../constants/microbes/faces.js");
 
 const CHAR_CODE_BASE = 97;
 const ALPHABET = (function() {
@@ -55,9 +56,11 @@ function getDynamicMicrobeMarkup() {
 
     for(var i=0; i<16; i++) {
         var microbeId = ALPHABET[i];
+        var microbeFace = faces[Math.floor(Math.random()*faces.length)];
+
         var microbeInstance = `<input class="mc_c" type="checkbox" id="${microbeId}">
                 <label class="mc_l" for="${microbeId}">
-                    <span class="mc_f">◕_◕</span>
+                    <span class="mc_f">${microbeFace}</span>
                     <code class="mc_d">You made me red</code>
                 </label>`;
         microbes.push(microbeInstance);
@@ -76,7 +79,7 @@ function getPositionStyles() {
         "<style>"
     ];
 
-    var stylePositions = mapUtils.getMap([{ x: 0, y: 0}], 16);
+    var stylePositions = mapUtils.getMap([{ x: 0, y: 0}], 16, 14);
 
     stylePositions.forEach(function(stylePosition, stylePositionIndex) {
         var microbeId = ALPHABET[stylePositionIndex];

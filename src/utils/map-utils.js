@@ -5,9 +5,9 @@ function spaceOverlaps(point, mapPoint, minDistance) {
     return (distance < minDistance);
 }
 
-function isPointInvalid(point, map) {
+function isPointInvalid(point, map, minDistance) {
     return map.some(function(mapPoint) {
-        return spaceOverlaps(point, mapPoint, 10);
+        return spaceOverlaps(point, mapPoint, minDistance);
     });
 }
 
@@ -22,7 +22,7 @@ function getRandomPoint() {
     };
 }
 
-function addRandomPointToPoints(points = []) {
+function addRandomPointToPoints(points = [], minDistance) {
     var randomPoint = null;
 
     // TODO: Do not push `randomPoint` to `points` if
@@ -30,7 +30,7 @@ function addRandomPointToPoints(points = []) {
 
     do {
         randomPoint = getRandomPoint();
-        if(isPointInvalid(randomPoint, points)) {
+        if(isPointInvalid(randomPoint, points, minDistance)) {
             randomPoint = null;
         }
     } while (randomPoint === null)
@@ -40,11 +40,11 @@ function addRandomPointToPoints(points = []) {
     return points;
 }
 
-function getMap(points = [], desiredPointAmount = 0) {
+function getMap(points = [], desiredPointAmount = 0, minDistance = 10) {
     var pointsRemaining = desiredPointAmount - points.length;
 
     for(var i = 0; i < pointsRemaining; i++) {
-        points = addRandomPointToPoints(points);
+        points = addRandomPointToPoints(points, minDistance);
     }
 
     return points;

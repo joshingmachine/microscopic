@@ -1,9 +1,7 @@
 .mc_c {
-    position: absolute;
-    top: -99999px;
-    left: -99999px;
     margin: 0px;
     padding: 0px;
+    display: none;
 }
 
 .mc_l {
