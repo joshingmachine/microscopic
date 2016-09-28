@@ -50,23 +50,45 @@ const ALPHABET = (function() {
 //     `;
 // }
 
+function getMicrobeTemplate(id, face, dialogArray, groupClass) {
+    return `<input class="mc_c ${groupClass}" type="checkbox" id="${id}">
+            <label class="mc_l ${groupClass}" for="${id}">
+                <span class="mc_f">${face}</span>
+                <code class="mc_d">You made me red</code>
+            </label>`;
+}
 
-function getDynamicMicrobeMarkup() {
-    var microbes = ["<div class=\"dish-wrapper\"><div class=\"dish\">"];
+function getMicrobeFace(groupClass) {
+    if(groupClass === "friend") {
+        return faces[0];
+    } else {
+        return faces[Math.floor(Math.random()*faces.length)];
+    }
+}
 
-    for(var i=0; i<16; i++) {
+function getMicrobeGroup(groupClass, groupNum, startIndex=0) {
+    var microbeGroup = [];
+
+    for(var i=startIndex; i<groupNum+startIndex; i++) {
         var microbeId = ALPHABET[i];
-        var microbeFace = faces[Math.floor(Math.random()*faces.length)];
-
-        var microbeInstance = `<input class="mc_c" type="checkbox" id="${microbeId}">
-                <label class="mc_l" for="${microbeId}">
-                    <span class="mc_f">${microbeFace}</span>
-                    <code class="mc_d">You made me red</code>
-                </label>`;
-        microbes.push(microbeInstance);
+        var microbeFace = getMicrobeFace(groupClass);
+        var microbeDialog = [];
+        var microbeTemplate = getMicrobeTemplate(microbeId, microbeFace, microbeDialog, groupClass);
+        microbeGroup.push(microbeTemplate);
     }
 
-    microbes.push("</div></div>");
+    return microbeGroup;
+}
+
+function getDynamicMicrobeMarkup() {
+    var dishOpen = ["<div class=\"dish-wrapper\"><div class=\"dish\">"];
+
+    var friends = getMicrobeGroup("friend", 4, 0);
+    var strangers = getMicrobeGroup("stranger", 12, 4);
+
+    var dishClose = ["</div></div>"];
+
+    var microbes = dishOpen.concat(friends, strangers, dishClose);
 
     var microbeString = [].concat.apply([], microbes).join("");
     var minifiedMicrobes = minifyUtils.getMinifiedMarkup(microbeString);

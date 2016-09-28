@@ -48,6 +48,14 @@
     animation: speak 200ms ease-out 1;
 }
 
+.friend {
+    background-color: lightblue;
+}
+
+.friend:checked + .mc_l.friend {
+    background-color: deepskyblue;
+}
+
 @keyframes speak {
     0% { transform: translateY(4vmin); opacity: 0;}
     100% {  transform: translateY(0vmin); opacity: 1; }

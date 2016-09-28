@@ -2,10 +2,10 @@
 // http://www.jemoticons.com/
 
 module.exports = [
+    "◕‿◕",
     "◕_◕",
     "ಠ_ಠ",
     "ಠ‿ಠ",
-    "◕‿◕",
     "◉_◉",
     "⚆_⚆",
     "°ロ°",
