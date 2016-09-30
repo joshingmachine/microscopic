@@ -1,29 +1,28 @@
-.mc_c {
+.microbe__checkbox {
     margin: 0px;
     padding: 0px;
     display: none;
 }
 
-.mc_l {
+.microbe__label {
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    font-size: 4vmin;
     cursor: pointer;
     position: absolute;
-    width: 1.6%;
-    left: -0.8%;
     text-align: center;
-    background-color: lightsalmon;
+    transform: translate(-50%,-50%);
+}
+
+.microbe__label {
+    fill: lightsalmon;
     border-radius: 25%;
-    height: 0;
     padding: 0.8% 0;
-    transform: translate(-50%, -50%);
 }
 
 /* Default State */
-.mc_d {
+.microbe__dialog {
     display: none;
     margin: 0px;
     position: absolute;
@@ -35,12 +34,16 @@
     line-height: initial;
 }
 
-.mc_c:checked + .mc_l {
-   pointer-events: none;
-   background-color: red;
+.microbe__content {
+    position: absolute;
 }
 
-.mc_c:checked + .mc_l > .mc_d {
+.microbe__checkbox:checked + .microbe__content > .microbe__label {
+   pointer-events: none;
+   fill: red;
+}
+
+.microbe__checkbox:checked + .microbe__content > .dialog-expansion {
     display: inline-block;
     -webkit-animation: speak 200ms ease-out 1;
     -moz-animation: speak 200ms ease-out 1;
@@ -48,13 +51,101 @@
     animation: speak 200ms ease-out 1;
 }
 
-.friend {
-    background-color: lightblue;
+.friend + .microbe__content > .microbe__label {
+    fill: lightblue;
 }
 
-.friend:checked + .mc_l.friend {
-    background-color: deepskyblue;
+.friend:checked + .microbe__content > .microbe__label {
+    fill: deepskyblue;
 }
+
+
+
+
+
+
+
+.dialog-expansion {
+  display: none;
+}
+
+input {
+  display: none;
+}
+
+input:checked + .mc_l {
+  pointer-events: none;
+}
+
+input:checked + label + .dialog {
+  display: inline-block;
+}
+
+.dialog-continue {
+  margin-top: 10px;
+  cursor: pointer;
+  display: block;
+  color: gray;
+  font-family: monospace;
+  text-align: right;
+}
+
+.dialog-content {
+  background-color: white;
+  display: inline-block;
+  padding: 20px;
+  border-radius: 10px;
+  transform: translate(-50%, -250%);
+  border: lightgray 1px solid;
+  border-bottom-width: 2px;
+}
+
+.dialog-content::before {
+    content: '';
+    position: absolute;
+    top: 101%;
+    left: 50%;
+    margin-left: -20px;
+    idth: 0;
+    height: 0;
+    border-top: 20px solid lightgray;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-width: 20px;
+}
+
+.dialog-content::after {
+    content: '';
+    position: absolute;
+    top: 98%;
+    left: 50%;
+    margin-left: -20px;
+    width: 0;
+    height: 0;
+    border-top: solid 20px white;
+    border-left: solid 20px transparent;
+    border-right: solid 20px transparent;
+}
+
+.dialog-text {
+  margin: 20px;
+  font-size: 24px;
+}
+
+input:checked + .dialog-content {
+  display: none;
+}
+
+input:checked + .microbe__label + .dialog-expansion,
+input:checked + .dialog-content + .dialog-expansion {
+    display: inline-block;
+    -webkit-animation: speak 200ms ease-out 1;
+    -moz-animation: speak 200ms ease-out 1;
+    -ms-animation: speak 200ms ease-out 1;
+    animation: speak 200ms ease-out 1;
+}
+
+
 
 @keyframes speak {
     0% { transform: translateY(4vmin); opacity: 0;}
@@ -64,4 +155,8 @@
 @-webkit-keyframes speak {
     0% { transform: translateY(4vmin); opacity: 0;}
     100% {  transform: translateY(0vmin); opacity: 1; }
+}
+
+@keyframes quiet {
+
 }

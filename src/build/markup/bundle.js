@@ -35,7 +35,7 @@ function bundleBodyMarkup() {
 
         const markupBundlers = [
             // markupUtils.getPartialMarkup("dish"),
-            // markupUtils.getPartialMarkup("microscope")
+            markupUtils.getPartialMarkup("endgame")
         ];
 
         Promise.all(markupBundlers)

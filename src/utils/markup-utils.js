@@ -46,7 +46,6 @@ function getMarkup() {
                              Promise.resolve("<body>"),
                              getDynamicDustMarkup(),
                              microbeUtils.getDynamicMicrobeMarkup(),
-                             getStaticMarkup("body"),
                              Promise.resolve("</body>")];
 
     return Promise.all(markupPromises).then(function(markupSections) {

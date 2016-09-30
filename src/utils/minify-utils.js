@@ -77,6 +77,7 @@ function getMinifiedMarkup(markup) {
         collapseBooleanAttributes: true,
         collapseInlineTagWhitespace: true,
         collapseWhitespace: true,
+        keepClosingSlash: true,
         minifyCSS: true,
         removeAttributeQuotes: true,
         removeComments: true,

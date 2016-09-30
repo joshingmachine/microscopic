@@ -1,0 +1,30 @@
+.endgame {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: lightblue;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.friend:checked ~ .friend:checked ~ .friend:checked ~ .friend:checked ~ .endgame {
+    display: flex;
+    -webkit-animation: win 200ms ease-out 1;
+    -moz-animation: win 200ms ease-out 1;
+    -ms-animation: win 200ms ease-out 1;
+    animation: win 200ms ease-out 1;
+}
+
+@keyframes win {
+    0% { transform: translateY(0.5vmin); opacity: 0;}
+    100% {  transform: translateY(0vmin); opacity: 1; }
+}
+
+@-webkit-keyframes win {
+    0% { transform: translateY(0.5vmin); opacity: 0;}
+    100% {  transform: translateY(0vmin); opacity: 1; }
+}

@@ -16,3 +16,10 @@
     /*background-color: lightblue; */
     position: relative;
 }
+
+.dish i {
+    position: inherit;
+    font-size: inherit;
+    color: inherit;
+    filter: blur(0px);
+}
