@@ -27,24 +27,17 @@ module.exports = [
     ], [
         "Ahhh!"
     ], [
-        "1"
+        "Yea, I was at Tanya's. SOOO much fun."
     ], [
-        "2"
+        "I wasn't gone for that long, was I?"
     ], [
-        "3"
+        "All of this waiting-to-be-found-by-you made me hungry."
     ], [
-        "4"
+        "And I would have gotten away with it, too...",
+        "If it weren't for you meddling microbiologists!"
     ], [
-        "5"
-    ], [
-        "6"
-    ], [
-        "7"
-    ], [
-        "8"
-    ], [
-        "9"
-    ], [
-        "10"
+        "You found me, but I still feel like I'm lost...",
+        "Wait, that's good.",
+        "Guys, emergency band practice, now!"
     ]
 ];
