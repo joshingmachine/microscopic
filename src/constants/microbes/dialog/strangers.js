@@ -22,10 +22,47 @@ module.exports = [
         "I'm sorry I'm E. coli.",
         "I wish I was someone else..."
     ], [
-        "I'm so small, compared to you...",
-        "Be honest with me: Do you think I matter at all?",
+        "I'm so small...",
+        "Do you think I matter at all?",
         "How am I supposed to make a difference compared to big people like you?"
     ], [
-        "Some microbes here are so cellfish"
+        "Some microbes here are so cellfish."
+    ], [
+        "Do you want to come back to my place and watch Netflix?",
+        "We can watch <i>Stranger Things</i> on my new 5μm flat-screen TV."
+    ], [
+        "Ahh!"
+    ], [
+        "Zzzzz... Zzzz...",
+        "Zzzzzzzzzzz....."
+    ], [
+        "How did you even notice me?"
+    ], [
+        "What are you looking at?"
+    ], [
+        "We went on a safari and saw a wild tardigrade.",
+        "Truly majestic animals..."
+    ], [
+        "I like visiting my grandpa, but sometimes it's difficult.",
+        "He doesn't like to talk about his time served in the bubonic plague."
+    ], [
+        "Yea yea, keep it moving, bud."
+    ], [
+        "You're just my type:",
+        "Tall, able to synthesize nicotinamide adenine dinucleotides, and handsome."
+    ], [
+        "Hello!"    
+    ], [
+        "Oops, excuse me..."    
+    ], [
+        "It was hard on me when my parent split up."
+    ], [
+        "<a href='https://www.youtube.com/watch?v=nxvlKp-76io' target='_blank'>♫ ♩ ♬ ♪ ♫</a>"
+    ], [
+        "Um, I think I saw one over there...",
+        "(points over there)",
+        "Yea, no problem!"
+    ], [
+        "I got tickets to the Extremely Lil Wayne concert, want to go?"
     ]
 ];
