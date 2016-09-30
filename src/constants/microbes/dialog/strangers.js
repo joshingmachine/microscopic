@@ -59,10 +59,27 @@ module.exports = [
     ], [
         "<a href='https://www.youtube.com/watch?v=nxvlKp-76io' target='_blank'>♫ ♩ ♬ ♪ ♫</a>"
     ], [
-        "Um, I think I saw one over there...",
+        "Um, I think I saw one of your friends over there...",
         "(points over there)",
         "Yea, no problem!"
     ], [
         "I got tickets to the Extremely Lil Wayne concert, want to go?"
+    ], [
+        "Do you think we were put here, or that we ended up here by chance?",
+        "I think about that a lot..."
+    ], [
+        "There's a bunch of bacteria like me in your mouth right now.",
+        "Why am I telling you this?",
+        "<i>Because I don't want you to ever be comfortable.</i>"
+    ], [
+        "The world is so big.",
+        "Think about it.",
+        "It's massive."
+    ], [
+        "Are you thinking what I'm thinking?",
+        "Cool, I'll meet you back here in 3 hours."
+    ], [
+        "Mr. Frodo! Take off the ring Mr. Frodo!",
+        "The Eye of Sauron is gazing right at us!"
     ]
 ];
