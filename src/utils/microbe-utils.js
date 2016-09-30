@@ -1,8 +1,9 @@
 var mapUtils = require("./map-utils");
 var minifyUtils = require("./minify-utils");
 var faces = require("../constants/microbes/faces.js");
+var tutorDialog = require("../constants/microbes/dialog/tutor.js");
 var friendDialog = require("../constants/microbes/dialog/friends.js");
-var strangerDialog = require("../constants/microbes/dialog/friends.js");
+var strangerDialog = require("../constants/microbes/dialog/strangers.js");
 
 const CHAR_CODE_BASE = 97;
 const ALPHABET = (function() {
@@ -65,9 +66,9 @@ function shuffle(a) {
 
 function getLabelMarkup(id, face, groupClass) {
     return `<label class="microbe__label" for="${id}">
-                <svg width="300px" height="200px" class="${groupClass}">
-                    <circle cx="100" cy="100" r="100"/>
-                    <circle cx="200" cy="100" r="100"/>
+                <svg class="${groupClass}" style="height: 100%; width: 100%;" class="tutor" viewBox="0 0 250 150" preserveAspectRatio="xMidYMid meet">
+                    <circle cx="75" cy="75" r="75"/>
+                    <circle cx="175" cy="75" r="75"/>
                     <text x="50%" y="50%" alignment-baseline="middle" text-anchor="middle" fill="black" font-size="30px">${face}</text>
                 </svg>
             </label>`;
@@ -128,18 +129,21 @@ function getMicrobeTemplate(id, face, dialogArray, groupClass) {
 // </div>
 
 function getMicrobeFace(groupClass) {
-    if(groupClass === "friend") {
-        return faces[0];
-    } else {
+    if(groupClass === "stranger") {
         return faces[Math.floor(Math.random()*faces.length)];
+    } else {
+        return faces[0];
     }
 }
 
 function getDialogSource(groupClass) {
-    if(groupClass === "friend") {
-        return friendDialog;
-    } else {
-        return strangerDialog;
+    switch(groupClass) {
+        case "tutor":
+            return tutorDialog;
+        case "friend":
+            return friendDialog;
+        default:
+            return strangerDialog;
     }
 }
 
@@ -161,12 +165,13 @@ function getMicrobeGroup(groupClass, groupNum, startIndex=0) {
 function getDynamicMicrobeMarkup() {
     var dishOpen = ["<div class=\"dish-wrapper\"><div class=\"dish\">"];
 
-    var friends = getMicrobeGroup("friend", 4, 0);
+    var tutor = getMicrobeGroup("tutor", 1, 0)
+    var friends = getMicrobeGroup("friend", 3, 1);
     var strangers = getMicrobeGroup("stranger", 12, 4);
+    var endgame = `<div class="microscope-wrapper"><div class="microscope"><div class="lens"></div></div></div><div class="endgame"><p>Congrats! You found them all!</p><p>Play Again?</p><div class="endgame-options"><a href="/">Yes</a><a href="https://www.buzzfeed.com/kellyoakes/what-type-of-bacteria-are-you?utm_term=.yoYxx9waA7#.vierrDjqmE">No, this was boring, I'd rather take some silly BuzzFeed quiz</a></div></div>`;
     var dishClose = ["</div></div>"];
-    var endgame = `<div class=endgame><h1>Congrats! You found them all!</h1><p>Play Again?</p><a href=/ >Yes</a><a href="https://www.buzzfeed.com/kellyoakes/what-type-of-bacteria-are-you?utm_term=.yoYxx9waA7#.vierrDjqmE">No, this was boring, I'd rather take some stupid Buzzfeed quiz</a></div>`;
 
-    var microbes = dishOpen.concat(friends, strangers, endgame, dishClose);
+    var microbes = dishOpen.concat(tutor, friends, strangers, endgame, dishClose);
 
     var microbeString = [].concat.apply([], microbes).join("");
     var minifiedMicrobes = minifyUtils.getMinifiedMarkup(microbeString);

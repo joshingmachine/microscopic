@@ -23,3 +23,7 @@
     color: inherit;
     filter: blur(0px);
 }
+
+.dish i::after {
+    content: "";
+}

@@ -29,7 +29,7 @@ module.exports = [
         "Some microbes here are so cellfish."
     ], [
         "Do you want to come back to my place and watch Netflix?",
-        "We can watch <i>Stranger Things</i> on my new 5μm flat-screen TV."
+        "We can watch Stranger Things on my new 5μm flat-screen TV."
     ], [
         "Ahh!"
     ], [
@@ -51,9 +51,9 @@ module.exports = [
         "You're just my type:",
         "Tall, able to synthesize nicotinamide adenine dinucleotides, and handsome."
     ], [
-        "Hello!"    
+        "Hello!"
     ], [
-        "Oops, excuse me..."    
+        "Oops, excuse me..."
     ], [
         "It was hard on me when my parent split up."
     ], [
@@ -78,8 +78,5 @@ module.exports = [
     ], [
         "Are you thinking what I'm thinking?",
         "Cool, I'll meet you back here in 3 hours."
-    ], [
-        "Mr. Frodo! Take off the ring Mr. Frodo!",
-        "The Eye of Sauron is gazing right at us!"
     ]
 ];

@@ -19,6 +19,7 @@
     fill: lightsalmon;
     border-radius: 25%;
     padding: 0.8% 0;
+    width: 25vmin;
 }
 
 /* Default State */
@@ -40,6 +41,10 @@
 
 .microbe__checkbox:checked + .microbe__content > .microbe__label {
    pointer-events: none;
+}
+
+
+.stranger:checked + .microbe__content > .microbe__label {
    fill: red;
 }
 
@@ -51,10 +56,12 @@
     animation: speak 200ms ease-out 1;
 }
 
+.tutor + .microbe__content > .microbe__label,
 .friend + .microbe__content > .microbe__label {
     fill: lightblue;
 }
 
+.tutor:checked + .microbe__content > .microbe__label,
 .friend:checked + .microbe__content > .microbe__label {
     fill: deepskyblue;
 }
@@ -95,9 +102,10 @@ input:checked + label + .dialog {
   display: inline-block;
   padding: 20px;
   border-radius: 10px;
-  transform: translate(-50%, -250%);
+  transform: translate(-50%, -25vh);
   border: lightgray 1px solid;
   border-bottom-width: 2px;
+  max-width: 75vw;
 }
 
 .dialog-content::before {
@@ -128,7 +136,6 @@ input:checked + label + .dialog {
 }
 
 .dialog-text {
-  margin: 20px;
   font-size: 24px;
 }
 
